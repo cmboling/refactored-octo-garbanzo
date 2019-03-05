@@ -42,3 +42,30 @@ db.generalAppCollection.aggregate(
      }
     } 
 );
+
+// return a specific field values in an array:
+db.getCollection("someCollection").aggregate(
+    [
+        { 
+            "$match" : {
+                "name" : "A Name"
+            }
+        }, 
+        { 
+            "$project" : {
+                "someName" : 1.0, 
+                "_id" : 0.0, 
+                "field1" : {
+                    "$map" : {
+                        "input" : "$array1”, 
+                        "as" : "ar", 
+                        "in" : "$$ar.field1”
+                    }
+                }
+            }
+        }
+    ], 
+    { 
+        "allowDiskUse" : false
+    }
+);
