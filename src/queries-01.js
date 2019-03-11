@@ -1,12 +1,12 @@
 //Title Mapping
-db.generalAppCollection.find({   "book_title" : {      $exists : true,      $ne : ""   },   "deleted_at": {$exists: false}})
+db.generalAppCollection.find({   "field1" : {      $exists : true,      $ne : ""   },   "field2": {$exists: false}})
 //Then in Excel, highlight the bonus and feature columns and use Excel's remove duplicates function.
 
 //Users in a User Group
 db.generalAppCollection.find({ groups:{ $in:[<insert comma delimited ObjectIds here>] } })
 
 //Latest Login of a User
-db.generalAppCollection.find({user: <insert email in lowercase here>, action:"login"}).sort({"created_at": -1}).limit(1)
+db.generalAppCollection.find({field1: <insert email in lowercase here>, action:"login"}).sort({"field2": -1}).limit(1)
 
 //Ascending List of Current User Groups
 db.generalAppCollection.find({type:'group'}).sort({'description':1})
