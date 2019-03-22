@@ -1,6 +1,6 @@
 //Title Mapping
 db.generalAppCollection.find({   "field1" : {      $exists : true,      $ne : ""   },   "field2": {$exists: false}})
-//Then in Excel, highlight the bonus and feature columns and use Excel's remove duplicates function.
+//use Excel's remove duplicates function.
 
 //Users in a User Group
 db.generalAppCollection.find({ groups:{ $in:[<insert comma delimited ObjectIds here>] } })
@@ -64,8 +64,5 @@ db.getCollection("someCollection").aggregate(
                 }
             }
         }
-    ], 
-    { 
-        "allowDiskUse" : false
-    }
+    ]
 );
